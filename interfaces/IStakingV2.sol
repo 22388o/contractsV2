@@ -15,21 +15,9 @@ interface IStakingV2 {
     }
 
     struct AltRewardsUserInfo {
-        uint256 rewardsPerShare;
-        uint256 pendingRewards;
+        uint256 stakingStartBlock;
+        uint256 pending;
     }
-
-    function getCurrentFeeTokens() external view returns (address[] memory);
-
-    function maxUniswapDisagreement() external view returns (uint256);
-
-    function fundsWallet() external view returns (address);
-
-    function callerRewardDivisor() external view returns (uint256);
-
-    function maxCurveDisagreement() external view returns (uint256);
-
-    function rewardPercent() external view returns (uint256);
 
     function addRewards(uint256 newOOKI, uint256 newStableCoin) external;
 

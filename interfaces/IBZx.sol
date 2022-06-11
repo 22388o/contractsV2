@@ -171,6 +171,8 @@ interface IBZx {
 
     function borrowingFeeTokensPaid(address) external view returns (uint256);
 
+    function tradingFeePercent() external view returns (uint256);
+
     function protocolTokenHeld() external view returns (uint256);
 
     function protocolTokenPaid() external view returns (uint256);
@@ -681,12 +683,22 @@ interface IBZx {
     /// @param destToken destination token address
     /// @param sourceTokenAmount source token amount
     /// @return amoun denominated in destination token
+    // TODO remove as soon as deployed on all chains
     function getSwapExpectedReturn(
         address sourceToken,
         address destToken,
         uint256 sourceTokenAmount,
         bytes calldata swapData
     ) external view returns (uint256);
+
+    function getSwapExpectedReturn(
+        address trader,
+        address sourceToken,
+        address destToken,
+        uint256 sourceTokenAmount,
+        bytes calldata payload)
+        external
+        returns (uint256);
 
     function owner() external view returns (address);
 
